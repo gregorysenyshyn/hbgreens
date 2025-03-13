@@ -1,0 +1,51 @@
+---
+title: Contact Us
+success_redirect: "/thank-you"
+error_redirect: "/error"
+hero_image: '/images/contact-hero.webp'
+header_class: 'class="white-nav"'
+main_classes: 'id="contact-main"'
+---
+
+{% extends "layout.html" %}
+
+{% block hero_text %}
+<p class="hero-headline hero-headline-white">Let's Keep in Touch!</p>
+{% endblock hero_text %}
+
+{% block main %}
+<div id="contact-greeting">
+  <h2>How Can We Help?</h2>
+  <p>If you have any questions at all about our programs, just let us know!</p>
+</div>
+
+<div id="contact-address-wrapper">
+  <h2>Mailing Address</h2>
+  <ul>
+  <li>404 St. Albert St.</li>
+  <li>Kincardine, Ontario</li>
+  <li>N2Z 2V2</li>
+  </ul>
+  <h2>Other Options</h2>
+  <ul>
+  <li><a href="mailto:contact@asyncacademy.ca">contact@asyncacademy.ca</a></li>
+  <li><a href="tel:+1-613-212-5989">(613) 212-5989</a></li>
+  </ul>
+</div>
+
+<div id="contact-form-wrapper">
+  <h2>How To Reach Us</h2>
+  <form id="contact-form" action="{{api_url}}/form" method="post">
+    <input type="text" name="name" autocomplete="name" placeholder="name*" required>
+    <input type="text" name="email" autocomplete="email" placeholder="email*" required>
+    <input type="text" name="phone" autocomplete="phone" placeholder="phone" >
+    <textarea name="message" cols="30" rows="10" placeholder="your message*" required></textarea> 
+    <span class="loader hidden"></span>
+    <input type="submit" onclick="submitRecaptchaForm(event, '{{recaptcha_sitekey}}', 'contact', 'contact-form', '/landing/thank-you', '/landing/error')" value="Submit">
+    <small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small>
+  </form>
+</div>
+
+
+
+{% endblock main %}

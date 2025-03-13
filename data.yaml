@@ -1,0 +1,51 @@
+options:
+  dist: dist
+  images: images
+  htaccess: src/apache/.htaccess
+  cache_control_age: 259200
+  aws_profile_name: default
+  aws_region_name: "us-east-1"
+  s3_bucket: hbgreens.ca
+  api_url: ""
+  recaptcha_sitekey: ""
+
+
+scss:
+    paths:
+      css/style.css:
+        - site-variables.scss
+        - header.scss
+        - footer.scss
+        - style.scss
+    search:
+      - src/scss/
+
+
+js:
+  paths:
+    js/scripts.js:
+      - header.js
+      - forms.js
+    js/redirect.js:
+      - redirect.js
+  search:
+    - src/js/
+
+
+copy:
+  "dist/":
+    - src/copy/*
+
+
+html:
+  - files:
+      - src:
+          - src/pages/*.html
+        template: layout.html
+        dest: ''
+    partials:
+      - src/partials/*.html
+      - src/partials/policy/*.html
+    layouts:
+      - src/layouts/layout.html
+    options: {}

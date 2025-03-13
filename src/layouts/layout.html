@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% if production %}
+    {% include 'analytics-head.html' %}
+    {% endif %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{description}}">
+
+    <link rel="icon" type="image/png" href="/images/favicon16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="256x256" href="/images/favicon256.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    {% if canonical %}
+      <link rel="canonical" href="{{canonical}}">
+    {% endif %}
+
+    <!-- Recaptcha -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render={{recaptcha_sitekey}}"></script>
+
+    {% block head %}
+    {% endblock head %}
+
+    {% block title %}
+    <title>{{title}} | Huron Bruce Green Party</title>
+    {% endblock title %}
+
+  </head>
+
+  <body>
+    {% if production %}
+    {% include 'analytics-body.html' %}
+    {% endif %}
+
+    {% block content %}
+    {% include 'header.html' %}
+    <div id="hero" style="background-image: url('{{hero_image}}');" {{hero_classes}}>
+      <div id="hero-text">
+      {% block hero_text %}
+      {% endblock hero_text %}
+      </div>
+    </div>
+    <main {{main_classes}}>
+      {% block main %}
+      {% endblock main %}
+    </main>
+    {% endblock content %}
+    {% include 'footer.html' %}
+
+    <script src="/js/scripts.js"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+
+  </body>
+</html>

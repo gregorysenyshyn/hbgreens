@@ -1,0 +1,162 @@
+footer {
+  background-color: $darkblue;
+  color: white;
+  padding: 4rem 2rem 2rem;
+  @include sm {
+    display: flex;
+    flex-direction: column;
+  }
+  @include md {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+  }
+
+  #footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include sm {
+      order: 3;
+      margin: 1rem 0;
+    }
+    @include md {
+      padding-right: 2rem;
+      grid-column: 1;
+    }
+
+    #footer-gwe-image {
+      display: flex;
+      align-items: start;
+      @include sm {
+        justify-content: center;
+      }
+
+      h2 {
+        margin: 0;
+        color: white;
+      }
+
+      img {
+        @include sm {
+          margin: 0 0 0 0.75rem;
+        }
+        @include md {
+          margin: 0 0.75rem;
+        }
+        max-width: 50%;
+        object-fit: cover;
+      }
+    }
+
+    #footer-social-links {
+      width: 100%;
+      display: flex;
+      @include sm {
+        justify-content: center;
+      }
+      @include md {
+        justify-content: start;
+      }
+
+      a {
+        margin: 2rem 1rem 0;
+      }
+
+      img {
+        height: 1.5rem;
+      }
+    }
+  }
+
+  #footer-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @include sm {
+      padding: 2rem;
+      order: 2;
+    }
+
+    @include md {
+      grid-column: 2;
+      padding: 0 2rem;
+    }
+
+    #footer-center-copyright {
+      @include sm {
+        display: none;
+      }
+    }
+
+    .footer-description {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  #footer-right {
+    @include sm {
+      order: 1;
+    }
+
+    @include md {
+      grid-column: 3;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      @include sm {
+        text-align: center;
+        padding: 0;
+      }
+      @include md {
+        text-align: right;
+      }
+      
+      h2 {
+        margin: 0;
+        color: white;
+      }
+
+      li {
+        margin: 1rem 0 0;
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @include md {
+      h2 {
+        margin-top: 0;
+        width: 100%;
+        text-align: right;
+      }
+    }
+    @include sm {
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  #footer-bottom {
+    order: 4;
+    text-align: center;
+    @include md {
+      display: none;
+    }
+  }
+
+
+
+
+
+}
