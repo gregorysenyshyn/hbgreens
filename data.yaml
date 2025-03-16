@@ -8,14 +8,14 @@ options:
   s3_bucket: hbgreens.ca
   api_url: ""
   recaptcha_sitekey: ""
+  base_url: "https://huronbrucegreens.ca"
+  local_url: "http://hbgreens.local"
 
 
 scss:
     paths:
       css/style.css:
         - site-variables.scss
-        - header.scss
-        - footer.scss
         - style.scss
     search:
       - src/scss/
@@ -23,8 +23,7 @@ scss:
 
 js:
   paths:
-    js/scripts.js:
-      - header.js
+    js/forms.js:
       - forms.js
     js/redirect.js:
       - redirect.js
@@ -34,7 +33,13 @@ js:
 
 copy:
   "dist/":
-    - src/copy/*
+    - src/copy/robots.txt
+  "dist/js/":
+    - src/copy/js/*
+  "dist/css/":
+    - src/copy/css/*
+  "dist/plugins/":
+    - src/copy/plugins/*
 
 
 html:

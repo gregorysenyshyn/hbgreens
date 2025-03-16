@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<!--[if IE 7]><html class="ie ie7 ltie8 ltie9" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 ltie9" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+
+<head>
     {% if production %}
     {% include 'analytics-head.html' %}
     {% endif %}
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
     <meta name="description" content="{{description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Huron Bruce Greens</title>
 
     <link rel="icon" type="image/png" href="/images/favicon16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/images/favicon32.png" sizes="32x32">
@@ -15,49 +21,148 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic&amp;subset=latin&amp;' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans%3Aregular%2Citalic%2C700%2C700italic&amp;subset=greek%2Ccyrillic-ext%2Ccyrillic%2Clatin%2Clatin-ext%2Cvietnamese%2Cgreek-ext&amp;' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather%3A300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Mystery+Quest%3Aregular&amp;subset=latin%2Clatin-ext&amp;' type='text/css' media='all' />
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/superfish/css/superfish.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/dl-menu/component.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/font-awesome-new/css/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/elegant-font/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/fancybox/jquery.fancybox.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/flexslider/flexslider.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style-responsive.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style-custom.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='plugins/masterslider/public/assets/css/masterslider.main.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/master-custom.css' type='text/css' media='all' />
 
-    {% if canonical %}
-      <link rel="canonical" href="{{canonical}}">
-    {% endif %}
-
-    <!-- Recaptcha -->
     <script src="https://www.google.com/recaptcha/enterprise.js?render={{recaptcha_sitekey}}"></script>
 
     {% block head %}
     {% endblock head %}
+</head>
 
-    {% block title %}
-    <title>{{title}} | Huron Bruce Green Party</title>
-    {% endblock title %}
-
-  </head>
-
-  <body>
+<body data-rsssl=1 class="home page-template-default page page-id-5680 _masterslider _msp_version_3.2.7 woocommerce-no-js">
     {% if production %}
     {% include 'analytics-body.html' %}
     {% endif %}
+    <div class="body-wrapper  float-menu" data-home="https://{% if production %}{{base_url}}{% else %}{{local_url}}{% endif %}">
 
-    {% block content %}
     {% include 'header.html' %}
-    <div id="hero" style="background-image: url('{{hero_image}}');" {{hero_classes}}>
-      <div id="hero-text">
-      {% block hero_text %}
-      {% endblock hero_text %}
+
+    {% block main %}
+    {% endblock %}
+
+    <div class="greennature-payment-lightbox-overlay" id="greennature-payment-lightbox-overlay"></div>
+    <div class="greennature-payment-lightbox-container" id="greennature-payment-lightbox-container">
+      <div class="greennature-payment-lightbox-inner">
+        <form class="greennature-payment-form" id="greennature-payment-form" >
+          <h3 class="greennature-payment-lightbox-title">
+            <span class="greennature-head">You are donating to :</span>
+            <span class="greennature-tail">Greennature Foundation</span>
+          </h3>
+
+          <div class="greennature-payment-amount">
+            <div class="greennature-payment-amount-head">How much would you like to donate?</div>
+            <a class="greennature-payment-price-preset greennature-active" data-val="10">$10</a>
+            <a class="greennature-payment-price-preset" data-val="20">$20</a>
+            <a class="greennature-payment-price-preset" data-val="30">$30</a>
+            <input class="greennature-payment-price-fill" type="text" placeholder="Or Your Amount(USD)" />
+            <input class="greennature-payment-price" type="hidden" name="amount" value="10" />
+
+            <input class="greennature-payment-price" type="hidden" name="a3" value="10">
+          </div>
+
+          <div class="greennature-paypal-attribute">
+            <span class="greennature-head">Would you like to make regular donations?</span>
+            <span class="greennature-subhead">I would like to make </span>
+            <select name="t3" class="greennature-recurring-option">
+              <option value="0">one time</option>
+              <option value="W">weekly</option>
+              <option value="M">monthly</option>
+              <option value="Y">yearly</option>
+            </select>
+            <span class="greennature-subhead">donation(s)</span>
+            <input type="hidden" name="p3" value="1" />
+            <div class="greennature-recurring-time-wrapper">
+              <span class="greennature-subhead">How many times would you like this to recur? (including this payment) *</span>
+              <select name="srt" class="greennature-recurring-option">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="bn" value="PP-BuyNowBF">
+            <input type="hidden" name="src" value="1">
+            <input type="hidden" name="sra" value="1">
+          </div>
+
+          <div class="greennature-form-fields">
+            <div class="six columns">
+              <div class="columns-wrap greennature-left">
+                <span class="greennature-head">Name *</span>
+                <input class="greennature-require" type="text" name="name">
+              </div>
+            </div>
+            <div class="six columns">
+              <div class="columns-wrap greennature-right">
+                <span class="greennature-head">Last Name *</span>
+                <input class="greennature-require" type="text" name="last-name">
+              </div>
+            </div>
+            <div class="clear"></div>
+            <div class="six columns">
+              <div class="columns-wrap greennature-left">
+                <span class="greennature-head">Email *</span>
+                <input class="greennature-require greennature-email" type="text" name="email">
+              </div>
+            </div>
+            <div class="six columns">
+              <div class="columns-wrap greennature-right">
+                <span class="greennature-head">Phone</span>
+                <input type="text" name="phone">
+              </div>
+            </div>
+            <div class="clear"></div>
+            <div class="six columns">
+              <div class="columns-wrap greennature-left">
+                <span class="greennature-head">Address</span>
+                <textarea name="address"></textarea>
+              </div>
+            </div>
+            <div class="six columns">
+              <div class="columns-wrap greennature-right">
+                <span class="greennature-head">Additional Note</span>
+                <textarea name="additional-note"></textarea>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="greennature-payment-method">
+            <img class="greennature-active" src="images/paypal.png" alt="paypal" /><img src="images/stripe.png" alt="stripe" />
+            <input type="hidden" name="payment-method" value="paypal" /> </div>
+          <div class="greennature-message"></div>
+          <div class="greennature-loading">Loading...</div>
+          <input type="submit" value="Donate Now" />
+        </form>
       </div>
     </div>
-    <main {{main_classes}}>
-      {% block main %}
-      {% endblock main %}
-    </main>
-    {% endblock content %}
-    {% include 'footer.html' %}
+    </div>
+    <!-- body-wrapper -->
 
-    <script src="/js/scripts.js"></script>
-    {% block scripts %}
-    {% endblock scripts %}
+    {% include 'scripts.html' %}
 
   </body>
 </html>

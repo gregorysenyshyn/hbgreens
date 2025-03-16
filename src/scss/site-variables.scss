@@ -1,9 +1,11 @@
-$darkblue: #284B99;
-$medblue: #728ECC;
-$text: darken($medblue, 40%);
-$lightblue: lighten($medblue, 30%);
-$orange: #FF9869;
-$brown: #CC8272;
+$text: #000000;
+$green: #75ae55;
+$yellow: #f4d73d;
+$blue: #007194;
+$blue-grad: linear-gradient(65deg, rgb(0, 133, 174) 0%, rgb(82, 193, 219) 100%);
+$green-grad: linear-gradient(90deg, #2f772f 0%, #75ae55 100%);
+$white-grad: linear-gradient(0deg, rgba(0,0,0,0) 0%, #000000 90%);
+
 
 
 @mixin sm {
@@ -30,7 +32,6 @@ $brown: #CC8272;
   }
 } 
 
-.grecaptcha-badge { visibility: hidden; }
 
 * {
   box-sizing: border-box;
@@ -62,53 +63,42 @@ main {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $darkblue;
+  color: $blue;
   text-align: center;
 }
 
 a {
   text-decoration: none;
-  color: $medblue;
+  color: $blue;
 }
 
 strong {
   font-weight: 600;
 }
 
-form {
-  small {
-    margin-top: 1rem;
-  }
-}
+
+//Forms
+//
 
 button, input[type="button"], input[type="submit"] {
-  background-color: $darkblue;
-  border: 1px solid $darkblue;
-  color: white;
+  color: black;
   font-size: 1.2rem;
   font-weight: 800;
-  padding: 1rem;
-  border-radius: 3px;
-  box-shadow: $text 0 0 10px;
+  padding: 0.5rem;
+  border-radius: 24px;
+  background-color: white;
+  border: 1px solid white;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   transform: scale(1.05);
-  background-color: lighten($darkblue, 10%);
-  border: 1px solid lighten($darkblue, 10%);
 }
 
 button:active, input[type="button"]:active, input[type="submit"]:active   {
   transform: scale(0.95);
-  background-color: $darkblue;
-  border: $darkblue;
+  background-color: $blue;
+  border: $blue;
 }
-
-.hidden {
-  display: none !important;
-}
-
-/* Loader */
 
 .loader {
   width: 48px;
@@ -120,6 +110,7 @@ button:active, input[type="button"]:active, input[type="submit"]:active   {
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
+
 .loader::after {
   content: '';  
   box-sizing: border-box;
@@ -129,7 +120,7 @@ button:active, input[type="button"]:active, input[type="submit"]:active   {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border-bottom: 4px solid $orange;
+  border-bottom: 4px solid $blue;
   border-left: 4px solid transparent;
 }
 @keyframes rotation {
@@ -141,7 +132,27 @@ button:active, input[type="button"]:active, input[type="submit"]:active   {
   }
 } 
 
-/* End Loader */
+
+// Utility
+//
+//
+
+
+.hidden {
+  display: none !important;
+}
+
+.grecaptcha-badge { 
+  visibility: hidden; 
+}
+
+.rounded {
+  border-radius: 16px;
+}
+
+.slanted {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
 
 .youtube-video { 
   max-width: 100%;
@@ -155,217 +166,3 @@ button:active, input[type="button"]:active, input[type="submit"]:active   {
   }
 }
 
-.orange-button {
-  background-color: $orange;
-  color: $darkblue;
-  border: 1px solid $orange;
-}
-
-.orange-button:hover {
-  background-color: lighten($orange, 10%);
-  border: 1px solid lighten($orange, 10%);
-}
-
-.orange-button:active {
-  background-color: $orange;
-  color: $darkblue;
-  border: $orange;
-}
-
-.page-text-wrapper {
-  padding-bottom: 4rem;
-  @include sm {
-    padding: 2rem;
-    max-width: 100%;
-  }
-  @include md {
-    grid-column: 3;
-  }
-}
-
-#hero {
-  position: relative;
-  max-width: 100vw;
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  z-index: 5;
-  line-height: initial;
-
-  display: flex;
-  @include sm {
-    align-items: flex-end;
-  }
-  @include md {
-    align-items: center;
-  }
-
-  #hero-text {
-    text-shadow: $text 0 0 5px;
-
-    @include sm {
-      padding: 2rem;
-      font-size: 1.6rem;
-    }
-    @include md {
-      margin-left: 25%;
-      width: 27%;
-      font-size: 1.1rem;
-    }
-    @include lg {
-      width: 20%;
-    }
-    button {
-      box-shadow: $medblue 0 0 15px;
-      @include sm {
-        margin: 2rem 0;
-      }
-      @include md {
-        margin: 0;
-      }
-      @include lg {
-        margin: 2rem 0;
-      }
-    }
-  }
-
-  .hero-headline {
-    font-size: 3rem;
-    font-weight: 500;
-    color: $darkblue;
-    text-shadow: $medblue 0 0 2px;
-    @include md {
-      margin: 0;
-    }
-
-    .hero-callout {
-      color: $orange;
-      text-shadow: $darkblue 0 0 2px;
-    }
-  }
-
-  .hero-headline-white {
-    color: white !important;
-    text-shadow: $darkblue 0 0 5px !important;
-  }
-
-}
-
-.tile-wrapper {
-  grid-column: 1 / span 5;
-  display: flex;
-  @include sm {
-    flex-direction: column;
-  }
-
-  @include md {
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-}
-
-.tile {
-  position: relative;
-  aspect-ratio: 1/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-color: white;
-
-  h2, p {
-    color: white;
-  }
-}
-
-.tile-floating-text-box {
-  position: absolute;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  z-index: 3;
-  background-color: rgba(114, 142, 204, 0.7);
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2, h3, p, a {
-    color: white;
-    max-width: 75%;
-    text-shadow: black 0 0 3px;
-  }
-}
-
-.two-tile {
-  flex-basis: 50%;
-  @include sm {
-    flex-basis: 100%;
-  }
-}
-
-.three-tile {
-  flex-basis: 33%;
-  @include sm {
-    flex-basis: 100%;
-  }
-}
-
-.four-tile {
-  flex-basis: 25%;
-  @include sm {
-    flex-basis: 100%;
-  }
-}
-
-.tile-sm-1 {
-  @include sm {
-    order: 1;
-  }
-}
-
-.tile-sm-2 {
-  @include sm {
-    order: 2;
-  }
-}
-
-.tile-sm-3 {
-  @include sm {
-    order: 3;
-  }
-}
-
-.tile-sm-4 {
-  @include sm {
-    order: 4;
-  }
-}
-
-.tile-text-box {
-  height: 75%;
-  width: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-
-  h3 {
-    font-size: 1.5rem;
-    margin: 0.2rem;
-  }
-
-  button {
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    font-size: 0.95rem;
-  }
-}
